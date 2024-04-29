@@ -1,0 +1,116 @@
+.width40{
+    width: 40%; 
+}
+
+.width100{
+    width: 100%;
+}
+
+.width13{
+    width: 13rem;
+}
+
+.width50{
+    width: 50%;
+}
+.height7{
+    height: 7rem;
+}
+
+.bgcolorCrema{
+    background-color:#e6d0b9
+}
+
+.flex{
+    display: flex;
+}
+
+.gap67{
+    gap:67%
+}
+
+.gap02{
+    gap:0.2rem
+}
+
+.flexRow{
+    flex-direction: row;
+}
+
+.flexColumn{
+    flex-direction: column;
+}
+
+.marginRight7{
+    margin-right: -7px
+}
+
+.marginRight5{
+    margin-right: 5%;
+}
+
+.marginLeft1{
+    margin-left: 1rem;
+}
+
+.marginLeft70{
+    margin-left: 70%;
+}
+
+.marginTop05{
+    margin-top: 0.5rem;
+}
+
+.marginTop1{
+    margin-top: 1rem
+}
+
+
+.marginBottom10{
+    margin-bottom: 10px;
+}
+
+.margin2{
+    margin: 2px;
+}
+
+.userImg{
+    width: 7rem;
+    padding: 10px;
+}
+
+.userIcon{
+    width: 3rem; 
+    margin-top: 2rem;
+}
+
+.cardBoat{
+    width: 13rem; 
+    margin-bottom: 2rem;
+    text-align: center;
+    object-fit: cover;
+}
+
+.darkLink{
+    color: black;
+    text-decoration: none;
+}
+
+
+.barco:hover{
+    transition: 0.6s ease-in-out;
+    transform-origin: center;
+    transform: scale(0.96);
+    opacity: 88%;
+    border: rgba(255, 255, 255, 0.342) 5px solid;
+   
+    
+}
+
+a:hover{
+    transition: 0.1s ease-in-out;
+    transform-origin: center;
+    transform: scale(1.2);
+    font-weight: 500;
+    
+}

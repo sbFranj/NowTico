@@ -1,0 +1,35 @@
+
+<div class="container width40">
+    <br>
+    <form class="form-control bgcolorCrema" [formGroup]="myForm" >
+        <h3>{{id? "Info del Socio":"Formulario alta de Socio"}}</h3><br>
+        
+        Nombre
+        <input type="text" class="form-control" formControlName="nombre">
+        @if (noValido("nombre")) {
+        <span class="text-danger">
+            Nombre necesario
+        </span><br>
+        }
+
+        Apellido
+        <input type="text" class="form-control" formControlName="apellido">
+        @if (noValido("apellido")) {
+        <span class="text-danger">
+            Apellido necesario
+        </span><br>
+        }
+
+        Dni
+        <input type="text" class="form-control" formControlName="dni" [readOnly]="id>=0">
+        @if (noValido("dni")) {
+        <span class="text-danger">
+            {{dniError}}
+        </span><br>
+        }
+        
+        <br>
+        <button (click)="submit()" class="btn btn-success" [disabled]="myForm.invalid">{{id?"Editar":"Guardar"}}</button>
+        <br>
+    </form>
+</div>

@@ -1,0 +1,84 @@
+<br>
+<div [style]="show? 'margin-left:8%':'margin-left:33%'">
+    <h3>Lista de socios del Club &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        @if (authService.getUserData().role=="admin") {
+        <a routerLink="/socio">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                class="marginBottom10 icon icon-tabler icon-tabler-user-plus" width="40" height="40" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                <path d="M16 19h6" />
+                <path d="M19 16v6" />
+                <path d="M6 21v-2a4 4 0 0 1 4 -4h4" />
+            </svg>
+        </a>
+    }
+    </h3>
+</div>
+
+<div class="marginTop1 flex flexRow">
+    <div class="container width40" >
+        @for (socio of socios; track $index) {
+        <br>
+        <div class="card flex flexRow width100 height7 ">
+            <img class="card-img-top userImg"
+                src="https://th.bing.com/th/id/OIP.UY0H6jNLhhjKymJWT6HsPwHaHa?rs=1&pid=ImgDetMain" alt="Card image">
+            <div class="card-body" >
+                <h4 class="card-title">{{socio.nombre}} {{socio.apellido}}</h4>
+                <button class="btn btn-secondary" (click)="showBarcos($index)">Barcos</button>
+            </div>
+            @if (authService.getUserData().role=="admin") {
+            <a class="userIcon" routerLink="/socio/{{socio.id_socio}}">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-user-search" width="40" height="40" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                    <path d="M6 21v-2a4 4 0 0 1 4 -4h1.5" />
+                    <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                    <path d="M20.2 20.2l1.8 1.8" />
+                </svg>
+            </a>
+            <a class="userIcon" href="javascript:void(0)" (click)="del($index)">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M4 7l16 0" />
+                    <path d="M10 11l0 6" />
+                    <path d="M14 11l0 6" />
+                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                  </svg>
+            </a>
+        }
+        </div>
+        }
+    </div>
+    @if (show) {
+
+    <div class="flex flexColumn width50">
+        <br>
+        <h3>Lista de barcos de {{socios[lastIndex].nombre+" "+socios[lastIndex].apellido}}</h3>
+        <br>
+        <div class="marginRight5 d-flex flex-wrap justify-content-around ">
+            @for (barco of barcos; track $index) {
+            <div class="card bgcolorCrema width13 margin2 barco">
+                @if (authService.getUserData().role=="admin") {
+                <p href="javascript:void(0)" routerLink="/barco/{{barco.id_barco}}">
+                    <img class="card-img-top" src="https://source.unsplash.com/1600x900/?boat&client_id={{barco.id_barco}}"
+                        alt="Card image cap">
+                </p>
+            }@else {
+                <img class="card-img-top" src="https://source.unsplash.com/1600x900/?boat&client_id={{barco.id_barco}}"
+                        alt="Card image cap">
+            }
+                <div class="card-body flex gap02" >
+                    <h5 class="card-title">{{barco.nombre}}</h5>
+
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+    }
+</div>

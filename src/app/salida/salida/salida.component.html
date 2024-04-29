@@ -1,0 +1,46 @@
+<div class="container width40" >
+    <br>
+    <form class="form-control bgcolorCrema" [formGroup]="myForm" >
+        <h3>{{id? "Info de la Salida":"Formulario alta de Salida"}}</h3><br>
+        
+        Barco:
+        <select class="form-control"formControlName="barco">
+            <option value="">--Selecciona un Barco--</option>
+            @for (barco of barcos; track $index) {
+            <option value="{{barco.id_barco}}">{{barco.nombre}}</option>
+            }
+        </select>
+        @if (noValido("barco")) {
+            <span class="text-danger">
+                Barco neceario
+            </span><br>
+            }
+        Fecha
+        <input type="datetime-local" class="form-control" formControlName="fecha" [readOnly]="id>=0">
+        @if (noValido("fecha")) {
+            <span class="text-danger">
+                {{fechaError}}
+            </span><br>
+            }
+        Destino
+        <input type="text" class="form-control" formControlName="destino">
+        @if (noValido("destino")) {
+        <span class="text-danger">
+            Destino necesario
+        </span><br>
+        }
+
+        Dni
+        <input type="text" class="form-control" formControlName="dni">
+        @if (noValido("dni")) {
+        <span class="text-danger">
+            {{dniError}}
+        </span><br>
+        }
+        
+        <br>
+        <button (click)="submit()" class="btn btn-success" [disabled]="myForm.invalid">{{id?"Editar":"Guardar"}}</button>
+        <br>
+    </form>
+</div>
+

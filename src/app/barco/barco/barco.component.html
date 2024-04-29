@@ -1,0 +1,49 @@
+<div class="container width40">
+    <br>
+    <form class="form-control bgcolorCrema" [formGroup]="myForm">
+        <h3>{{id? "Info del Barco":"Formulario alta de Barco"}}</h3><br>
+        Matricula
+        <input type="text" class="form-control" formControlName="numero_matricula">
+        @if (noValido("numero_matricula")) {
+        <span class="text-danger">
+            {{matriculaError}}
+        </span><br>
+        }
+        Nombre
+        <input type="text" class="form-control" formControlName="nombre">
+        @if (noValido("nombre")) {
+        <span class="text-danger">
+            Nombre necesario
+        </span><br>
+        }
+        Numero de amarre
+        <input type="number" class="form-control" formControlName="numero_amarre">
+        @if (noValido("numero_amarre")) {
+        <span class="text-danger">
+            {{numero_amarreError}}
+        </span><br>
+        }
+        Cuota
+        <input type="number" class="form-control" formControlName="cuota">
+        @if (noValido("cuota")) {
+        <span class="text-danger">
+            {{cuotaError}}
+        </span><br>
+        }
+        Propietario
+        <select type="text" class="form-control" formControlName="propietario">
+            @if (noValido("propietario")) {
+            <span class="text-danger">
+                <option value="">--Elige un propietario--</option>
+            </span><br>
+            }
+            <option value="">--Elige un propietario--</option>
+            @for (socio of socios; track $index) {
+            <option value="{{socio.id_socio}}">{{socio.nombre+" "+socio.apellido}}</option>
+            }
+        </select>
+        <br>
+        <button (click)="submit()" class="btn btn-success" [disabled]="myForm.invalid">{{id?"Editar":"Guardar"}}</button>
+        <br>
+    </form>
+</div>

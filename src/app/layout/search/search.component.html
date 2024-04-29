@@ -1,0 +1,5 @@
+<form class="form-inline flex width40 marginLeft1" >
+    <input [(ngModel)] = "busqueda" name="busqueda" class="form-control" type="search" placeholder="Buscar barcos" aria-label="Search" (keyup)="sendSearch()">
+    <button class="btn btn-outline-success" type="submit" (click)="sendSearch()">Buscar</button>
+</form>
+<br>

@@ -1,0 +1,74 @@
+@if (!goTo()) {
+  <nav class="navbar navbar-expand-lg navbar-success bg-success">
+    <a class="navbar-brand" routerLink="/">&nbsp;  Now  
+      <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-anchor"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9v12m-8 -8a8 8 0 0 0 16 0m1 0h-2m-14 0h-2" /><path d="M12 6m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /></svg>
+      Tico</a>
+      
+      
+      <div class="" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          @if (authService.isLogged()) {
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/barcos">Barcos</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/socios">Socios</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/salidas">Salidas</a>
+            </li>
+          }
+        <li class="nav-item">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </li>
+        <li class="nav-item">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </li>
+        <li class="nav-item">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </li>
+        <li class="nav-item">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </li>
+        <li class="nav-item">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </li>
+        <li class="nav-item">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </li>
+        <li class="nav-item">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </li>
+        @if (isLogged()) {
+          <li class="nav-item marginTop05" >
+            <a >{{authService.getUserData().nombre}}
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+              </svg>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a (click)="logout()" class="nav-link" routerLink="/login">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cerrar sesion</a>
+          </li>
+        }@else {
+          <li class="nav-item">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </li>
+          <li class="nav-item">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </li>
+          <li class="nav-item">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+        }
+      </ul>
+    </div>
+  </nav>
+  }
