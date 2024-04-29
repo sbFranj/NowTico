@@ -7,3 +7,4 @@ Front en angular con: CRUDs de todas las entidades (Barco, Salida, Socio), JWT e
 ## Parte User: Listado de Barcos, Socios y Salidas 
 
 ## Parte Admin: Crear, Actualizar y eliminar Barcos, Socios y Salidas 
+(El requisito para ser admin en este caso es tener mas de 5 barcos asociados a un socio)
