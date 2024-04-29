@@ -23,12 +23,20 @@ export class LoginComponent {
     this.authService.login(this.loginRequest)
     .subscribe({
       next:resp=>{
-        Swal.fire({
-          title: "Correcto",
-          text: "Bienvenido",
-          icon: "success"
-        });
-        this.router.navigateByUrl("/")
+        if(resp){
+          Swal.fire({
+            title: "Correcto",
+            text: "Bienvenido",
+            icon: "success"
+          });
+          this.router.navigateByUrl("/")
+        }else{
+          Swal.fire({
+            title: "Error",
+            text: "Credenciales incorrectas",
+            icon: "warning"
+          });
+        }
       },
       error:err=>{
         Swal.fire({

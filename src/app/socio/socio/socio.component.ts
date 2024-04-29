@@ -25,6 +25,8 @@ export class SocioComponent implements OnInit {
 
   @Input() id: number = -1
 
+  @Input() register:string = ""
+
   noValido(campo: string): boolean {
     return this.myForm?.controls[campo]?.invalid && this.myForm?.controls[campo]?.touched
   }
@@ -45,6 +47,7 @@ export class SocioComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     if (this.id >= 0) {
       this.myForm = this.fb.group({
         nombre: ["", [Validators.required, Validators.pattern(/\S/)]],
@@ -72,7 +75,12 @@ export class SocioComponent implements OnInit {
                 title: "Editado Correctamente",
                 icon: "success"
               });
-              this.router.navigateByUrl("/socio/" + this.id)
+              if(!this.register){
+
+                this.router.navigateByUrl("/socio/" + this.id)
+              }else{
+                this.router.navigateByUrl("/")
+              }
             // },
             // error: err => {
             //   Swal.fire({
@@ -93,13 +101,13 @@ export class SocioComponent implements OnInit {
               });
               this.router.navigateByUrl("/socio/" + resp.id_socio)
             },
-            error: err => {
-              Swal.fire({
-                title: "Error",
-                text: err.message,
-                icon: "error"
-              });
-            }
+            // error: err => {
+            //   Swal.fire({
+            //     title: "Error",
+            //     text: err.message,
+            //     icon: "error"
+            //   });
+            // }
           })
       }
     }

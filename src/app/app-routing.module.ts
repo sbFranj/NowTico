@@ -13,6 +13,7 @@ import { HomeComponent } from './layout/home/home.component';
 
 export const routes: Routes = [
   {path: "", component: HomeComponent},
+  { path: "register/:register", component: SocioComponent},
   { path: "barcos", component: ListComponent , canMatch:[loginGuard]},
   { path: "barco", component: BarcoComponent , canMatch:[loginGuard,adminGuard]},
   { path: "barco/:id", component: BarcoComponent , canMatch:[loginGuard,adminGuard]},
